@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import manageRecipes from './reducers/manageRecipes'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import Layout from './containers/Layout';
 import App from './App';

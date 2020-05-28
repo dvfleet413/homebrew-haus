@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Navbar from '../components/Navbar';
+import Menu from '../components/Menu';
 
 export default class Layout extends Component {
     
     render(){
         return(
-            <div className="app">
-                <div className="navbar">
-                    <Navbar />
-                </div>
+            <div>
+                <Menu />
                 {this.props.children}
                 <div className="footer">
                     <p>Footer</p>
