@@ -7,17 +7,19 @@ import manageRecipes from './reducers/manageRecipes'
 import './index.css';
 import Layout from './containers/Layout';
 import App from './App';
+import LoginForm from './components/LoginForm';
 import * as serviceWorker from './serviceWorker';
 
 const store = createStore(manageRecipes, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <Provider store={store}>
-    <Layout>
-      <Router>
-        <Route path="/" component={App} />
-      </Router>
-    </Layout>
+    <Router>
+      <Layout>
+        <Route exact path="/" component={App} />
+        <Route exact path="/login" component={LoginForm} />
+      </Layout>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

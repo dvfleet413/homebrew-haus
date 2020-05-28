@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from '../components/Navbar';
 
 export default class Layout extends Component {
     
@@ -6,7 +7,7 @@ export default class Layout extends Component {
         return(
             <div className="app">
                 <div className="navbar">
-                    <h1>Homebrewer</h1>
+                    <Navbar />
                 </div>
                 {this.props.children}
                 <div className="footer">
