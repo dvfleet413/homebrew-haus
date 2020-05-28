@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions/fetchRecipes'
 import Recipe from '../components/Recipe'
+
 
 class RecipesContainer extends Component {
 
-    // recipes = this.props.recipes.map(recipe => <Recipe />)
+
+
+    recipes = this.props.recipes.map(recipe => <Recipe />)
 
     render(){
         return(
@@ -16,4 +20,12 @@ class RecipesContainer extends Component {
 
 }
 
-export default connect()(RecipesContainer)
+function mapStateToProps(state){
+    return {recipes: state.recipes}
+}
+
+function mapDispatchToProps(dispatch){
+    return { fetchRecipes: () => dispatch(fetchRecipes())}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesContainer)
