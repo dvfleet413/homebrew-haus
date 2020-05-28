@@ -5,6 +5,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import manageRecipes from './reducers/manageRecipes'
 import './index.css';
+import Layout from './containers/Layout';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -12,9 +13,11 @@ const store = createStore(manageRecipes, window.__REDUX_DEVTOOLS_EXTENSION__ && 
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Route path="/" component={App} />
-    </Router>
+    <Layout>
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
+    </Layout>
   </Provider>,
   document.getElementById('root')
 );
