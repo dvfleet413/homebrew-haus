@@ -1,12 +1,13 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
+import RecipesContainer from './containers/RecipesContainer';
 import './App.css';
 
 function App() {
   return (
-    <Container>
-      App Component
-    </Container>
+    <div>
+      <RecipesContainer />
+    </div>
   );
 }
 
