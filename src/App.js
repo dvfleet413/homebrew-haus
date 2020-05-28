@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import Container from 'react-bootstrap/Container'
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <Container>
       App Component
-    </div>
+    </Container>
   );
 }
 

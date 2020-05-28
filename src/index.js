@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import manageRecipes from './reducers/manageRecipes'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './index.css';
 import Layout from './containers/Layout';
 import App from './App';
 import LoginForm from './components/LoginForm';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './configureStore'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
-const store = createStore(manageRecipes, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
