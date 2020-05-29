@@ -1,14 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import Nav from 'react-bootstrap/Nav';
+import NavItem from 'react-bootstrap/NavItem';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Menu = () => {
     return(
         <Navbar bg="light">
+            <LinkContainer to="/">
+                    <Navbar.Brand>HomeBrew.haus</Navbar.Brand>
+                </LinkContainer>
             <Nav className="mr-auto">
-                <NavLink to='/'className="navbar-brand-link">HomeBrew.haus</NavLink>
-                <NavLink to='/recipes'className="navbar-brand-link">Recipes</NavLink>
+                <NavLink  to="/recipes" className="nvbar-link">Recipes</NavLink>
             </Nav>
             <Nav className="ml-auto">
                 <NavLink to="/login" className="navbar-link">Login</NavLink>
