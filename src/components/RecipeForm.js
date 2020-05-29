@@ -40,6 +40,7 @@ export default class RecipeForm extends Component {
         this.setState(prevState => {
             return{
                 ...this.setState,
+                // eslint-disable-next-line
                 grainsAttributes: prevState.grainsAttributes.filter(grain => grain.id != id)
             }
         })
@@ -58,6 +59,7 @@ export default class RecipeForm extends Component {
         this.setState(prevState => {
             return{
                 ...this.setState,
+                // eslint-disable-next-line
                 maltsAttributes: prevState.maltsAttributes.filter(malt => malt.id != id)
             }
         })
