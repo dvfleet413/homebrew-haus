@@ -23,6 +23,9 @@ const Recipe = (props) => {
                 {props.recipe.hops.filter(hop => hop.hop_type === "aroma").map(hop => <li key={`${hop.id}-hop`}>{hop.weight} oz {hop.name} (aroma hop)</li>)}
             </ul>
             <p>Boil for 3 minutes.  Remove from heat and chill the wort for 20 minutes.  Strain the cooled wort into the primary fermenter and add cold water to obtain 5-1/8 gallons. When the wort temperature is below 70 degree F pitch the yeast.</p>
+            <ul>
+                <li>{props.recipe.yeast.name}</li>
+            </ul>
             <p>Ferment in the primary fermenter for 7 days or until fermentation slows, then siphon into the secondary fermenter {props.recipe.hops.some(hop => hop.hop_type === "dry") ? 'then add:' : '.'}</p>
             <ul>
                 {props.recipe.hops.filter(hop => hop.hop_type === "dry").map(hop => <li key={`${hop.id}-hop`}>{hop.weight} oz {hop.name} (dry hop)</li>)}
