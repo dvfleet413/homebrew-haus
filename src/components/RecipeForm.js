@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import uuid from 'uuid';
+import { addRecipe } from '../actions/addRecipe';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
+import HopForm from './HopForm';
+import HopCard from './HopCard';
 import GrainCard from './GrainCard';
 import YeastForm from './YeastForm'
 import MaltCard from './MaltCard';
 import YeastCard from './YeastCard';
 
-export default class RecipeForm extends Component {
+class RecipeForm extends Component {
     state = {
         name: '',
         category: '',
         summary: '',
         grainsAttributes: [],
         maltsAttributes: [],
+        hopsAttributes: [],
         yeastAttributes: {}
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.addRecipe(this.state)
     }
 
     handleChange = (event) => {
@@ -65,6 +71,25 @@ export default class RecipeForm extends Component {
         })
     }
 
+    addHop = (event, hop) => {
+        event.preventDefault()
+        this.setState({
+            ...this.state,
+            hopsAttributes: [...this.state.hopsAttributes, {...hop, id: uuid()}]
+        })
+    }
+
+    removeHop = (event, id) => {
+        event.preventDefault()
+        this.setState(prevState => {
+            return{
+                ...this.setState,
+                // eslint-disable-next-line
+                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.id != id)
+            }
+        })
+    }
+
     addYeast = (event, yeast) => {
         event.preventDefault()
         this.setState({
@@ -84,6 +109,7 @@ export default class RecipeForm extends Component {
     render(){
         const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} grain={grain} removeGrain={this.removeGrain} />)
         const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.id} malt={malt} removeMalt={this.removeMalt} />)
+        const hops = this.state.hopsAttributes.map(hop => <HopCard key={hop.id} hop={hop} removeHop={this.removeHop} />)
         const yeast = <YeastCard key={this.state.yeastAttributes.id} yeast={this.state.yeastAttributes} removeYeast={this.removeYeast} />
 
         return(
@@ -111,6 +137,12 @@ export default class RecipeForm extends Component {
                     </div>
                     <MaltForm addMalt = {this.addMalt} />
                     <br />
+                    <h3>Hops:</h3>
+                    <div className="current-ingredient-container">
+                        {hops}
+                    </div>
+                    <HopForm addHop = {this.addHop} />
+                    <br />
                     <h3>Yeast: </h3>
                     {Object.keys(this.state.yeastAttributes).length === 0 ? <YeastForm addYeast={this.addYeast} /> : <div className="current-ingredient-container">{yeast}</div>}
                     <br />
@@ -120,3 +152,11 @@ export default class RecipeForm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addRecipe: (recipe) => dispatch(addRecipe(recipe))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(RecipeForm);
