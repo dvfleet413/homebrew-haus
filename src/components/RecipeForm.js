@@ -35,11 +35,31 @@ export default class RecipeForm extends Component {
         })
     }
 
+    removeGrain = (event, id) => {
+        event.preventDefault()
+        this.setState(prevState => {
+            return{
+                ...this.setState,
+                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.id != id)
+            }
+        })
+    }
+
     addMalt = (event, malt) => {
         event.preventDefault()
         this.setState({
             ...this.state,
             maltsAttributes: [...this.state.maltsAttributes, {...malt, id: uuid()}]
+        })
+    }
+
+    removeMalt = (event, id) => {
+        event.preventDefault()
+        this.setState(prevState => {
+            return{
+                ...this.setState,
+                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.id != id)
+            }
         })
     }
 
@@ -51,10 +71,18 @@ export default class RecipeForm extends Component {
         })
     }
 
+    removeYeast = (event) => {
+        event.preventDefault()
+        this.setState({
+            ...this.state,
+            yeastAttributes: {}
+        })
+    }
+
     render(){
-        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} grain={grain} />)
-        const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.id} malt={malt} />)
-        const yeast = <YeastCard key={this.state.yeastAttributes.id} yeast={this.state.yeastAttributes} />
+        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} grain={grain} removeGrain={this.removeGrain} />)
+        const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.id} malt={malt} removeMalt={this.removeMalt} />)
+        const yeast = <YeastCard key={this.state.yeastAttributes.id} yeast={this.state.yeastAttributes} removeYeast={this.removeYeast} />
 
         return(
             <div className="beer-form-container">

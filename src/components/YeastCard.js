@@ -4,7 +4,7 @@ const YeastCard = (props) => {
     return(
         <div className="yeast-card">
             <span>{props.yeast.name}</span>
-            <button className="btn btn-secondary">Remove Yeast</button>
+            <button className="btn btn-secondary" onClick={event => props.removeYeast(event)}>Remove Yeast</button>
         </div>
     )
 }
