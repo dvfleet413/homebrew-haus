@@ -23,7 +23,7 @@ class App extends Component {
         <Layout>
             <Switch>
               <Route exact path="/login" component={LoginForm} />
-              <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow />}}/>
+              <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}}/>
               <Route path="/recipes" render={routerProps => <RecipesPage />} />
               <Route exact path="/" component={Home} />
             </Switch>
@@ -33,8 +33,12 @@ class App extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return { recipes: state.recipes }
+}
+
 function mapDispatchToProps(dispatch){
   return { fetchRecipes: () => dispatch(fetchRecipes())}
 }
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

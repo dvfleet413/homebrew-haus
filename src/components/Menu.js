@@ -8,6 +8,7 @@ const Menu = () => {
         <Navbar bg="light">
             <Nav className="mr-auto">
                 <NavLink to='/'className="navbar-brand-link">HomeBrew.haus</NavLink>
+                <NavLink to='/recipes'className="navbar-brand-link">Recipes</NavLink>
             </Nav>
             <Nav className="ml-auto">
                 <NavLink to="/login" className="navbar-link">Login</NavLink>

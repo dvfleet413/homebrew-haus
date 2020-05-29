@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import RecipeDetail from '../components/RecipeDetail'
 
-const RecipeShow = (props) => {
-    return(
-        <div>
-            <h3>In RecipeShow Component</h3>
-        </div>
-    )
+class RecipeShow extends Component {
+    render(){
+        const recipe = this.props.recipes.find(recipe => recipe.id === parseInt(this.props.recipeId, 10))
+        if (recipe) {
+            return(
+                <RecipeDetail recipe={recipe} />
+            )
+        } else {
+            return(
+                <div>
+                    <h3>Loading</h3>
+                </div>
+            )
+        }
+    }
 }
 
-export default RecipeShow;
+const mapStateToProps = (state) => {
+    return {recipes: state.recipes}
+}
+
+export default connect(mapStateToProps)(RecipeShow);
