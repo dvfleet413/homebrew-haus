@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
 import RecipeShow from './containers/RecipeShow';
+import RecipeForm from './components/RecipeForm';
 import LoginForm from './components/LoginForm';
 import './App.css';
 
@@ -23,8 +24,9 @@ class App extends Component {
         <Layout>
             <Switch>
               <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/recipes/new" component={RecipeForm} />
               <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}}/>
-              <Route path="/recipes" render={routerProps => <RecipesPage />} />
+              <Route path="/recipes" component={RecipesPage} />
               <Route exact path="/" component={Home} />
             </Switch>
         </Layout>

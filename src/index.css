@@ -18,7 +18,7 @@ code {
   background-color: #282c34;
 }
 
-.beer-card {
+.beer-card, .beer-form-container {
   background-color: white;
   margin: 5em;
   padding: 2em;
