@@ -1,14 +1,16 @@
 import React from 'react';
 
 const Recipe = (props) => {
+    const grainWeight = Math.round(props.recipe.grains.reduce((acc, cur) => ({weight: acc.weight + cur.weight})).weight / 16)
+    const spargeWater = grainWeight / 2
     return(
         <div className="beer-card">
             <h1>{props.recipe.name}</h1>
-            <p>Heat 1 gallon of water to 160 degrees F. Add:</p>
+            <p>Heat {spargeWater} gallon of water to 160 degrees F. Add:</p>
             <ul>
                 {props.recipe.grains.map(grain => <li key={`${grain.id}-grain`}>{grain.weight} oz {grain.name}</li>)}
             </ul>
-            <p>Remove from heat and steep at 150 degrees F for 30 minutes. Strain the grain water into the brew pot. Sparge the grains with 1 gallon of 150 degree F water. Bring the water to a boil, remove from heat, and add:</p>
+            <p>Remove from heat and steep at 150 degrees F for 30 minutes. Strain the grain water into the brew pot. Sparge the grains with {spargeWater} gallon of 150 degree F water. Bring the water to a boil, remove from heat, and add:</p>
             <ul>
                 {props.recipe.malts.map(malt => <li key={`${malt.id}-malt`}>{malt.weight} lb {malt.name}</li>)}
                 {props.recipe.hops.filter(hop => hop.hop_type === "bittering").map(hop => <li key={`${hop.id}-hop`}>{hop.weight} oz {hop.name} (bittering hop)</li>)}
