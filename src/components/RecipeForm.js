@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
 import GrainCard from './GrainCard';
@@ -28,14 +29,26 @@ export default class RecipeForm extends Component {
 
     addGrain = (event, grain) => {
         event.preventDefault()
+        this.setState({
+            ...this.state,
+            grainsAttributes: [...this.state.grainsAttributes, {...grain, id: uuid()}]
+        })
     }
 
     addMalt = (event, malt) => {
         event.preventDefault()
+        this.setState({
+            ...this.state,
+            maltsAttributes: [...this.state.maltsAttributes, {...malt, id: uuid()}]
+        })
     }
 
-    addMalt = (event, yeast) => {
+    addYeast = (event, yeast) => {
         event.preventDefault()
+        this.setState({
+            ...this.state,
+            yeastAttributes: {...yeast, id: uuid()}
+        })
     }
 
     render(){
