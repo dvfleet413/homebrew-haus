@@ -13,3 +13,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.recipe-container {
+  background-color: #282c34;
+}
+
+.beer-card {
+  background-color: white;
+  margin: 5em;
+  padding: 2em;
+  border-radius: 15px;
+}
+
+.beer-card h1, .beer-card h2, .beer-card li {
+  color: #282c34;
+}
