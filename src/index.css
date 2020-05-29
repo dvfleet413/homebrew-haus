@@ -46,15 +46,15 @@ code {
   padding-right: 2em;
 }
 
-.grain-card span, .malt-card span, .yeast-card span {
+.grain-card span, .malt-card span, .hop-card span, .yeast-card span {
   color: white;
 }
 
-.grain-card button, .malt-card button, .yeast-card button {
+.grain-card button, .malt-card button, .hop-card button, .yeast-card button {
   white-space: nowrap;
 }
 
-.grain-card, .malt-card, .yeast-card {
+.grain-card, .malt-card, .hop-card, .yeast-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,7 +65,7 @@ code {
   border-radius: 15px;
 }
 
-.grain-form, .malt-form, .yeast-form {
+.grain-form, .malt-form, .hop-form, .yeast-form {
   display: flex;
   justify-content: space-between;
   flex-direction: row;

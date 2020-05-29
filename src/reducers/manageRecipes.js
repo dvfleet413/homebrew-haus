@@ -1,6 +1,7 @@
 import { uuid } from 'uuid';
 
 export default function manageRecipes(state={recipes: []}, action){
+    let newId;
     switch(action.type){
         case 'GET_RECIPES':
             return {
@@ -8,9 +9,11 @@ export default function manageRecipes(state={recipes: []}, action){
                 recipes: action.recipes
             }
         case 'ADD_RECIPE':
+            newId = uuid()
             return {
                 ...state,
                 recipes: [...state.recipes, {
+                    id: newId,
                     name: action.recipe.name,
                     category: action.recipe.category,
                     summary: action.recipe.summary,
