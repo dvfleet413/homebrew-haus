@@ -121,7 +121,7 @@ class RecipeForm extends Component {
                         <div className="new-ingredient-inputs">
                             <div className="input"><span>Name: </span><input name="name" type="text" onChange={this.handleChange} value={this.state.name} /></div>
                             <div className="input"><span>Category: </span><input name="category" type="text" onChange={this.handleChange} value={this.state.category} /></div>
-                            <div className="input"><span>Summary: </span><input name="summary" type="text" onChange={this.handleChange} value={this.state.summary} /></div>
+                            <div className="input"><span>Summary: </span><textarea name="summary" onChange={this.handleChange} value={this.state.summary} /></div>
                         </div>
                     </div>
                     <br />

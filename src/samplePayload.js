@@ -1,23 +1,24 @@
 const recipe = {
-    name: "Goose Island Honker's Ale", 
-    category: "English Bitter", 
-    summary: "Medium bodied beer with off white head.  Pleasing blend of Cascade hops and spicy fruit which leads to a well-rounded smooth body of malt and hops.", 
+    name: "Sierra Nevada Porter", 
+    category: "Porter", 
+    summary: "Medium to full-bodied porter with attractive chestnut body with red highlights and creamy tan head.  Enticing medley of malt, roasted grains, chocolate, coffee, and floral hops. Malty with accents of nutty and roasted grains, chocolate, and packed with hops.", 
     grainsAttributes:[
-        {name: "US 40 L Crystal Malt", weight: "8"},
-        {name: "Belgian Cara-Munich Malt", weight: "8"},
-        {name: "German Munich Malt", weight: "8"}
+        {name: "US 80 L Crystal Malt", weight: "10"},
+        {name: "US Chocolate Malt", weight: "10"},
+        {name: "US Black Malt", weight: "4"}
     ], 
     maltsAttributes: [
-        {name: "Muntons Light DME", weight: "5.75"}
+        {name: "Alexanders Pale Malt Extract Syrup", weight: "4"},
+        {name: "Muntons Extra Light DME", weight: "3.5"},
+        {name: "Malto Dextrin", weight: "0.5"}
     ],
     hopsAttributes: [
-        {name: "Northern Brewer @ 8.5% AA", hopType: "bittering", weight: "1"},
-        {name: "Cascade", hopType: "flavor", weight: "0.5"},
-        {name: "Willamette", hopType: "flavor", weight: "0.5"},
-        {name: "Cascade", hopType: "aroma", weight: "1"}
+        {name: "Nugget @ 12% AA", hopType: "bittering", weight: "0.5"},
+        {name: "Centennial @ 10% AA", hopType: "bittering", weight: "0.5"},
+        {name: "Cascade", hopType: "flavor", weight: "0.25"}
     ],
     yeastAttributes: {
-        name: "Wyeast 1968 London ESB"
+        name: "Wyeast 1056 American Ale"
     }
 }
 
