@@ -90,6 +90,11 @@ code {
   flex-direction: row;
 }
 
+.hopType-radio-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 .btn-primary {
     color: #282c34;
     background-color: #757576;
