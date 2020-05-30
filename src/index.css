@@ -18,9 +18,21 @@ code {
   background-color: #282c34;
 }
 
+.recipe-container .btn {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  text-align: center;
+}
+
 .beer-card, .beer-form-container {
   background-color: white;
-  margin: 5em;
+  margin-left: 5em;
+  margin-right: 5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   padding: 2em;
   border-radius: 15px;
   color: #282c34;
