@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router";
 import uuid from 'uuid';
 import { addRecipe } from '../actions/addRecipe';
 import GrainForm from './GrainForm';
@@ -24,7 +25,7 @@ class RecipeForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addRecipe(this.state)
+        this.props.addRecipe(this.state, this.props.history)
     }
 
     handleChange = (event) => {
@@ -155,8 +156,8 @@ class RecipeForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addRecipe: (recipe) => dispatch(addRecipe(recipe))
+        addRecipe: (recipe, history) => dispatch(addRecipe(recipe, history))
     }
 }
 
-export default connect(null, mapDispatchToProps)(RecipeForm);
+export default withRouter(connect(null, mapDispatchToProps)(RecipeForm));

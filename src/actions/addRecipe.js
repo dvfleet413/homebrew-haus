@@ -1,4 +1,4 @@
-export function addRecipe(recipe){
+export function addRecipe(recipe, history){
     return (dispatch) => {
         dispatch({type: 'POSTING_NEW_RECIPE'})
         const configObj = {
@@ -15,6 +15,7 @@ export function addRecipe(recipe){
             })
             .then(function(json){
                 dispatch({type: 'ADD_RECIPE', recipe: json})
+                history.push(`/recipes/${json.id}`)
             })
             .catch(function(error){
             console.log(error.message)
