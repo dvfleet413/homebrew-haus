@@ -46,13 +46,14 @@ fetch(`http://localhost:8080/recipes`, configObj)
     })
 
 // get_current_user
+const token = localStorage.getItem("token")
 
 fetch("http://localhost:8080/get_current_user", {
     headers: {
-        "Auth": "eyJhbGciOiJIUzI1NiJ9.IntcInVzZXJuYW1lXCI9PlwiRGF2ZVwiLCBcInBhc3N3b3JkXCI9PlwicGFzc3dvcmRcIiwgXCJjb250cm9sbGVyXCI9Plwic2Vzc2lvbnNcIiwgXCJhY3Rpb25cIj0-XCJjcmVhdGVcIiwgXCJzZXNzaW9uXCI9PntcInVzZXJuYW1lXCI9PlwiRGF2ZVwiLCBcInBhc3N3b3JkXCI9PlwicGFzc3dvcmRcIn19Ig.PX8n_eJx5zm1tK1F14nHFFjuNfc0hiR3fK8BBJzxl6c"
+        "Auth": token
         }
     })
-    .then(respons => {
+    .then(response => {
         return response.json()
     })
     .then(json => {
