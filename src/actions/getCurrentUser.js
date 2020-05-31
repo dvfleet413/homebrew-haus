@@ -11,7 +11,7 @@ export function getCurrentUser(token) {
             })
             .then(json => {
                 const user = JSON.parse(json.user)
-                dispatch({type: 'GET_CURRENT_USER', user: user})
+                dispatch({type: 'ASSIGN_CURRENT_USER', user: user})
             })
     };
   }

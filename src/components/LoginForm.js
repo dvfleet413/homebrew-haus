@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { login } from '../actions/login';
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     state = {
         username: '',
         password: '',
@@ -14,26 +16,27 @@ export default class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        const configObject = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accepts": 'application/json'
-            },
-            body: JSON.stringify(this.state)
-        }
-        fetch("http://localhost:8080/login", configObject)
-            .then(response => {
-                return response.json()
-            })
-            .then(json => {
-                console.log(json)
-                console.log(json.jwt)
-                localStorage.setItem("token", json.jwt)
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
+        // const configObject = {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Accepts": 'application/json'
+        //     },
+        //     body: JSON.stringify(this.state)
+        // }
+        // fetch("http://localhost:8080/login", configObject)
+        //     .then(response => {
+        //         return response.json()
+        //     })
+        //     .then(json => {
+        //         console.log(json.user)
+        //         console.log(json.jwt)
+        //         localStorage.setItem("token", json.jwt)
+        //     })
+        //     .catch(error => {
+        //         console.log(error.message)
+        //     })
+        this.props.login(this.state)
     }
 
     render(){
@@ -57,3 +60,11 @@ export default class LoginForm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        login: (credentials) => dispatch(login(credentials))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(LoginForm)

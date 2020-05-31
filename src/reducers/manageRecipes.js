@@ -10,7 +10,7 @@ export default function manageRecipes(state={recipes: [], currentUser: {}}, acti
                 ...state,
                 recipes: [...state.recipes, action.recipe]
             }
-        case 'GET_CURRENT_USER':
+        case 'ASSIGN_CURRENT_USER':
             return {
                 ...state,
                 currentUser: action.user
