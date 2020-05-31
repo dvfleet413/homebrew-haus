@@ -1,4 +1,4 @@
-export default function manageRecipes(state={recipes: []}, action){
+export default function manageRecipes(state={recipes: [], currentUser: {}}, action){
     switch(action.type){
         case 'GET_RECIPES':
             return {
@@ -9,6 +9,11 @@ export default function manageRecipes(state={recipes: []}, action){
             return {
                 ...state,
                 recipes: [...state.recipes, action.recipe]
+            }
+        case 'GET_CURRENT_USER':
+            return {
+                ...state,
+                currentUser: action.user
             }
         default:
             return state
