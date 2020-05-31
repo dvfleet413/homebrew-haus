@@ -15,6 +15,11 @@ export default function manageRecipes(state={recipes: [], currentUser: {}}, acti
                 ...state,
                 currentUser: action.user
             }
+        case 'LOGOUT':
+            return {
+                ...state,
+                currentUser: {}
+            }
         default:
             return state
     }

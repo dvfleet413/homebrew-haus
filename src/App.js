@@ -27,6 +27,7 @@ class App extends Component {
         <Layout>
             <Switch>
               <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/logout" component={Home} />
               <Route exact path="/recipes/new" component={RecipeForm} />
               <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}}/>
               <Route path="/recipes" component={RecipesPage} />
@@ -39,7 +40,8 @@ class App extends Component {
 }
 
 function mapStateToProps(state){
-  return { recipes: state.recipes }
+  return { recipes: state.recipes,
+           currentUser: state.currentUser }
 }
 
 function mapDispatchToProps(dispatch){
