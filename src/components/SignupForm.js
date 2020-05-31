@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 class SignupForm extends Component {
     state = {
-        username: '',
+        name: '',
+        email: '',
         password: '',
         passwordConfirmation: ''
     }
@@ -25,9 +26,16 @@ class SignupForm extends Component {
                 <form onSubmit={event => this.handleSubmit(event)}>
                     <div className="login-input">
                         <span>Username: </span><input type="text" 
-                                                    name="username" 
+                                                    name="name" 
                                                     onChange={event => this.handleChange(event)} 
-                                                    value={this.state.username} />
+                                                    value={this.state.name} />
+                    </div>
+                    <br />
+                    <div className="login-input">
+                        <span>Email: </span><input type="text" 
+                                                    name="email" 
+                                                    onChange={event => this.handleChange(event)} 
+                                                    value={this.state.email} />
                     </div>
                     <br />
                     <div className="login-input">
