@@ -14,6 +14,7 @@ const UnauthenticatedMenu = () => {
                 <NavLink  to="/recipes" className="nvbar-link">Recipes</NavLink>
             </Nav>
             <Nav className="ml-auto">
+                <NavLink to="/signup" className="navbar-link">Signup</NavLink>
                 <NavLink to="/login" className="navbar-link">Login</NavLink>
             </Nav>
         </Navbar>

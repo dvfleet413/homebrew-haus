@@ -16,7 +16,10 @@ code {
 
 .navbar span {
   color: #282c34;
-  margin-right: 1em;
+}
+
+.navbar-link {
+  margin-left: 1em;
 }
 
 .login-container {
