@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import uuid from 'uuid';
-import { addRecipe } from '../actions/addRecipe';
+import { addRecipe } from '../../actions/addRecipe';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
 import HopForm from './HopForm';

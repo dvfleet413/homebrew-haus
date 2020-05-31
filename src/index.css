@@ -30,6 +30,11 @@ code {
   color: #282c34;
 }
 
+.login-input {
+  display: flex;
+  justify-content: space-between;
+}
+
 .login-container span, .login-container input {
   margin-top: 0.2em;
   margin-bottom: 0.2em;

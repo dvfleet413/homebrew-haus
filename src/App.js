@@ -9,8 +9,9 @@ import Home from './components/Home';
 import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
 import RecipeShow from './containers/RecipeShow';
-import RecipeForm from './components/RecipeForm';
+import RecipeForm from './components/recipeFormComponents/RecipeForm';
 import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 import './App.css';
 
 
@@ -28,6 +29,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/logout" component={Home} />
+              <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/recipes/new" component={RecipeForm} />
               <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}}/>
               <Route path="/recipes" component={RecipesPage} />

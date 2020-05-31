@@ -21,7 +21,7 @@ const Home = () => {
             <div className="col-two">
                 <div className="right">
                     <h5>HomeBrew.haus</h5>
-                    <p>HomeBrew.haus is here to help you find and store your favorite homebrew recipes. Browse our list of recipes, or add your own! And remember - <em>Enjoy your homebrew!</em></p>
+                    <p>HomeBrew.haus is here to help you find and store your favorite homebrew recipes. Browse our list of recipes, or add your own! And remember...<br /><em>Relax - Have a homebrew!</em></p>
                 </div>
             </div>
         </div>
