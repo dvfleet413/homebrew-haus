@@ -14,6 +14,24 @@ export default class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        const configObject = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accepts": 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        }
+        fetch("http://localhost:8080/login", configObject)
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                console.log(json)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     render(){
