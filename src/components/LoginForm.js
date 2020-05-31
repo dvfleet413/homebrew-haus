@@ -28,6 +28,8 @@ export default class LoginForm extends Component {
             })
             .then(json => {
                 console.log(json)
+                console.log(json.jwt)
+                localStorage.setItem("token", json.jwt)
             })
             .catch(error => {
                 console.log(error.message)

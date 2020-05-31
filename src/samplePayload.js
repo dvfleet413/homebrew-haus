@@ -1,3 +1,5 @@
+//POST new recipe
+
 const recipe = {
     name: "Sierra Nevada Porter", 
     category: "Porter", 
@@ -41,4 +43,18 @@ fetch(`http://localhost:8080/recipes`, configObj)
     })
     .catch(function(error){
     console.log(error.message)
+    })
+
+// get_current_user
+
+fetch("http://localhost:8080/get_current_user", {
+    headers: {
+        "Auth": "eyJhbGciOiJIUzI1NiJ9.IntcInVzZXJuYW1lXCI9PlwiRGF2ZVwiLCBcInBhc3N3b3JkXCI9PlwicGFzc3dvcmRcIiwgXCJjb250cm9sbGVyXCI9Plwic2Vzc2lvbnNcIiwgXCJhY3Rpb25cIj0-XCJjcmVhdGVcIiwgXCJzZXNzaW9uXCI9PntcInVzZXJuYW1lXCI9PlwiRGF2ZVwiLCBcInBhc3N3b3JkXCI9PlwicGFzc3dvcmRcIn19Ig.PX8n_eJx5zm1tK1F14nHFFjuNfc0hiR3fK8BBJzxl6c"
+        }
+    })
+    .then(respons => {
+        return response.json()
+    })
+    .then(json => {
+        console.log(json)
     })
