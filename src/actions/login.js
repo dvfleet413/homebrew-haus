@@ -11,6 +11,7 @@ export function login(credentials, history) {
     }
     fetch("http://localhost:8080/login", configObject)
         .then(response => {
+            if (!response.ok){ throw response }
             return response.json()
         })
         .then(json => {
@@ -20,7 +21,8 @@ export function login(credentials, history) {
             history.push(`/`)
         })
         .catch(error => {
-            console.log(error.message)
+            console.log(error.statusText)
+            history.push('/login')
         })
     };
   }
