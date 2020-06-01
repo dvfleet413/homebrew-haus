@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import homeBrewHaus from '../assets/homeBrewHaus.png';
 
-const Home = () => {
+const Home = (props) => {
     return(
         <div className="home-container">
             <div className="col-one">

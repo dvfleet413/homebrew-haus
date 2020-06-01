@@ -8,6 +8,7 @@ import { getCurrentUser } from './actions/getCurrentUser';
 import Home from './components/Home';
 import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
+import UserRecipes from './containers/UserRecipes';
 import RecipeShow from './containers/RecipeShow';
 import RecipeForm from './components/recipeFormComponents/RecipeForm';
 import LoginForm from './components/LoginForm';
@@ -31,9 +32,10 @@ class App extends Component {
               <Route exact path="/logout" component={Home} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/recipes/new" component={RecipeForm} />
-              <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}}/>
+              <Route path="/recipes/:recipeId" render={routerProps => {return <RecipeShow recipeId={routerProps.match.params.recipeId} />}} />
               <Route path="/recipes" component={RecipesPage} />
-              <Route exact path="/" component={Home} />
+              <Route path="/users/:userId/recipes" render={routerProps => {return <UserRecipes userId={routerProps.match.params.userId} />}} />
+              <Route exact path="/" render={() => {return <Home currentUser={this.props.currentUser} />}} />
             </Switch>
         </Layout>
       </Router>
