@@ -15,6 +15,7 @@ const UnauthenticatedMenu = (props) => {
             </Nav>
             <Nav className="ml-auto">
                 <span>Hello, {props.user.name}!</span>
+                <NavLink to={`/users/${props.user.id}/recipes`} className="navbar-link">Your Recipes</NavLink>
                 <NavLink to="/logout" onClick={event => props.handleClick(event)} className="navbar-link">Logout</NavLink>
             </Nav>
         </Navbar>
