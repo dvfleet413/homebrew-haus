@@ -1,4 +1,4 @@
-export function login(credentials) {
+export function login(credentials, history) {
     return (dispatch) => {
       dispatch({ type: 'START_LOGGING_IN' });
       const configObject = {
@@ -15,7 +15,9 @@ export function login(credentials) {
         })
         .then(json => {
             localStorage.setItem("token", json.jwt)
-            dispatch({type: 'ASSIGN_CURRENT_USER', user: json.user})
+            const user = JSON.parse(json.user)
+            dispatch({type: 'ASSIGN_CURRENT_USER', user: user})
+            history.push(`/`)
         })
         .catch(error => {
             console.log(error.message)

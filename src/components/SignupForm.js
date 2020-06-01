@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { signup } from '../actions/signup'
+import { withRouter } from "react-router";
 
 class SignupForm extends Component {
     state = {
@@ -11,6 +13,7 @@ class SignupForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        this.props.signup(this.state, this.props.history)
     }
 
     handleChange = (event) => {
@@ -59,4 +62,10 @@ class SignupForm extends Component {
     }
 }
 
-export default connect()(SignupForm)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signup: (credentials, history) => dispatch(signup(credentials, history))
+    }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(SignupForm))

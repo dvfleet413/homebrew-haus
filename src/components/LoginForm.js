@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/login';
+import { withRouter } from "react-router";
 
 class LoginForm extends Component {
     state = {
@@ -16,7 +17,7 @@ class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.login(this.state)
+        this.props.login(this.state, this.props.history)
     }
 
     render(){
@@ -47,8 +48,8 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (credentials) => dispatch(login(credentials))
+        login: (credentials, history) => dispatch(login(credentials, history))
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+export default withRouter(connect(null, mapDispatchToProps)(LoginForm))
