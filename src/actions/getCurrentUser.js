@@ -7,7 +7,7 @@ export function getCurrentUser(token) {
             headers: {
                 "Auth": token
             }
-        })
+            })
             .then(response => {
                 return response.json()
             })

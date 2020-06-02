@@ -23,7 +23,9 @@ export function login(credentials, history) {
             history.push(`/`)
         })
         .catch(error => {
-            console.log(error.statusText)
+            error.json().then(data => {
+                console.log(data.error)
+            })
             history.push('/login')
         })
     };
