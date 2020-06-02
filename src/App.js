@@ -11,7 +11,7 @@ import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
 import UserRecipes from './containers/UserRecipes';
 import RecipeShow from './containers/RecipeShow';
-import RecipeForm from './components/recipeFormComponents/RecipeForm';
+import RecipeForm from './components/forms/recipeFormComponents/RecipeForm';
 import LoginForm from './components/forms/LoginForm';
 import SignupForm from './components/forms/SignupForm';
 import './App.css';
