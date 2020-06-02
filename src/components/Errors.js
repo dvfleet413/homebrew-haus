@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 
 export default class Errors extends Component {
-    
-    componentDidMount(){
-        this.interval = setInterval(this.props.clearErrors, 5000)
-    }
-
-    componentWillUnmount(){
-        if(this.props.errors.length > 0){this.props.clearErrors()}
-        clearInterval(this.interval)
-    }
 
     render(){
+        let className = "alert alert-danger hidden"
+        if (this.props.errors.length > 0){
+            className = "alert alert-danger show"
+            setTimeout(this.props.clearErrors, 2000)
+        }
         return (
-            <div className="alert alert-danger" role="alert">
+            <div className={className} role="alert">
                 {this.props.errors.join(', ')}
             </div>
         )
