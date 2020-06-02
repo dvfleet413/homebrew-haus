@@ -90,6 +90,7 @@ code {
 
 .recipe-container {
   background-color: #282c34;
+  text-align: center;
 }
 
 .recipe-container .btn {
