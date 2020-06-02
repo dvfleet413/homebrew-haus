@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions/logout';
 import { clearErrors } from '../actions/clearErrors';
+import { withRouter } from 'react-router-dom';
 import AuthenticatedMenu from '../components/AuthenticatedMenu'
 import UnauthenticatedMenu from '../components/UnauthenticatedMenu';
 import Errors from '../components/Errors';
 
 class Layout extends Component {
 
-    handleLogout = () => {
-        this.props.logout()
+    handleLogout = (event) => {
+        event.preventDefault()
+        const { history } = this.props
+        this.props.logout(history)
     }
     
     render(){
@@ -32,9 +35,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logout: () => {dispatch(logout())},
+        logout: (history) => {dispatch(logout(history))},
         clearErrors: () => {dispatch(clearErrors())}
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout))
