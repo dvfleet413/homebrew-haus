@@ -23,7 +23,7 @@ export default function manageRecipes(state={recipes: [], currentUser: {}, error
                 ...state,
                 currentUser: {}
             }
-        case 'ADD_LOGIN_ERROR':
+        case 'ADD_ERROR':
             return {
                 ...state,
                 errorMessages: [...state.errorMessages, action.errorMessage]

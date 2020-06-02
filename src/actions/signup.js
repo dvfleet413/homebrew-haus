@@ -25,7 +25,13 @@ export function signup(credentials, history) {
                 history.push(`/`)
             })
             .catch(error => {
-                console.log(error.statusText)
+                error.json().then(data => {
+                    for(const key in data){
+                        const category = key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')
+                        const message = data[key][0].charAt(0).toUpperCase() + data[key][0].slice(1)
+                        dispatch({type: 'ADD_ERROR', errorMessage: `${category}: ${message}`})
+                    }
+                })
             })
     };
   }

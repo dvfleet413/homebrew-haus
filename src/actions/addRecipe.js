@@ -20,7 +20,7 @@ export function addRecipe(recipe, history){
                 history.push(`/recipes/${json.id}`)
             })
             .catch(function(error){
-            console.log(error.message)
+                console.log(error)
             }) 
     }
 }
