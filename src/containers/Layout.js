@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/logout';
 import AuthenticatedMenu from '../components/AuthenticatedMenu'
 import UnauthenticatedMenu from '../components/UnauthenticatedMenu';
+import Errors from '../components/Errors';
 
 class Layout extends Component {
 
@@ -14,6 +15,7 @@ class Layout extends Component {
         return(
             <>
                 {Object.keys(this.props.currentUser).length > 0 ? <AuthenticatedMenu user={this.props.currentUser} handleClick={this.handleLogout} /> : <UnauthenticatedMenu />}
+                {this.props.errors.length > 0 ? <Errors errors={this.props.errors} /> : null}
                 {this.props.children}
             </>
         )
@@ -22,7 +24,8 @@ class Layout extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        errors: state.errorMessages
     }
 }
 
