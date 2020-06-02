@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { fetchRecipes } from './actions/fetchRecipes';
 import { getCurrentUser } from './actions/getCurrentUser';
 
-import Home from './components/Home';
+import Home from './containers/Home';
 import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
 import UserRecipes from './containers/UserRecipes';
