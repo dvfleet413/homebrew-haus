@@ -28,6 +28,11 @@ export default function manageRecipes(state={recipes: [], currentUser: {}, error
                 ...state,
                 errorMessages: [...state.errorMessages, action.errorMessage]
             }
+        case 'CLEAR_ERRORS':
+            return {
+                ...state,
+                errorMessages: []
+            }
         default:
             return state
     }
