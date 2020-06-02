@@ -1,4 +1,4 @@
-export default function manageRecipes(state={recipes: [], currentUser: {}}, action){
+export default function manageRecipes(state={recipes: [], currentUser: {}, errorMessage: ''}, action){
     switch(action.type){
         case 'GET_RECIPES':
             return {
@@ -22,6 +22,11 @@ export default function manageRecipes(state={recipes: [], currentUser: {}}, acti
             return {
                 ...state,
                 currentUser: {}
+            }
+        case 'ADD_LOGIN_ERROR':
+            return {
+                ...state,
+                errorMessage: action.errorMessage
             }
         default:
             return state

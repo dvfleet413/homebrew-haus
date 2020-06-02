@@ -25,6 +25,7 @@ export function login(credentials, history) {
         .catch(error => {
             error.json().then(data => {
                 console.log(data.error)
+                dispatch({type: 'ADD_LOGIN_ERROR', errorMessage: data.error})
             })
             history.push('/login')
         })
