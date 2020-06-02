@@ -9,9 +9,13 @@ export default function configureStore(preloadedState) {
   const middlewareEnhancer = applyMiddleware(...middlewares)
 
   const enhancers = [middlewareEnhancer]
-  const composedEnhancers = process.env.NODE_ENV === 'development' ? composeWithDevTools(...enhancers) : enhancers
+  const composedEnhancers = composeWithDevTools(...enhancers)
 
-  const store = createStore(manageRecipes, preloadedState, composedEnhancers)
-
+  let store
+  if (process.env.NODE_ENV === 'development'){
+    store = createStore(manageRecipes, preloadedState, composedEnhancers)
+  } else {
+    store = createStore(manageRecipes, applyMiddleware(thunkMiddleware))
+  }
   return store
 }
