@@ -8,7 +8,7 @@ const UnauthenticatedMenu = (props) => {
     return(
         <Navbar bg="light">
             <LinkContainer to="/">
-                    <Navbar.Brand>HomeBrew.haus</Navbar.Brand>
+                    <Navbar.Brand>HomeBrew.pub</Navbar.Brand>
                 </LinkContainer>
             <Nav className="mr-auto">
                 <NavLink  to="/recipes" className="nvbar-link">Recipes</NavLink>

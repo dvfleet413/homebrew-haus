@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import homeBrewHaus from '../assets/homeBrewHaus.png';
+import homeBrewPub from '../assets/homeBrewPub.png';
 
 const Home = (props) => {
     return(
         <div className="home-container">
             <div className="col-one">
                 <div className="top-left">
-                    <img src={homeBrewHaus} alt="logo" />
+                    <img src={homeBrewPub} alt="logo" />
                 </div>
                 <div className="bottom-left">
                     <h5>Recipes</h5>
@@ -20,8 +20,8 @@ const Home = (props) => {
             </div>
             <div className="col-two">
                 <div className="right">
-                    <h5>HomeBrew.haus</h5>
-                    <p>HomeBrew.haus is here to help you find and store your favorite homebrew recipes. Browse our list of recipes, or add your own! And remember...<br /><em>Relax - Have a homebrew!</em></p>
+                    <h5>HomeBrew.pub</h5>
+                    <p>HomeBrew.pub is here to help you find and store your favorite homebrew recipes. Browse our list of recipes, or add your own! And remember...<br /><em>Relax - Have a homebrew!</em></p>
                 </div>
             </div>
         </div>
