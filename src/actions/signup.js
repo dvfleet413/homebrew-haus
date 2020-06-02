@@ -1,3 +1,5 @@
+import { config } from '../constants';
+
 export function signup(credentials, history) {
     return (dispatch) => {
         dispatch({ type: 'START_SIGNUP' });
@@ -11,7 +13,7 @@ export function signup(credentials, history) {
             body: JSON.stringify({user: credentials})
         }
         
-        fetch("http://localhost:8080/signup", configObject)
+        fetch(`${config.url.API_URL}/signup`, configObject)
             .then(response => {
                 if (!response.ok){ throw response }
                 return response.json()

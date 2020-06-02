@@ -1,3 +1,5 @@
+import { config } from '../constants';
+
 export function addRecipe(recipe, history){
     return (dispatch) => {
         dispatch({type: 'POSTING_NEW_RECIPE'})
@@ -9,7 +11,7 @@ export function addRecipe(recipe, history){
             },
             body: JSON.stringify({recipe})
         }
-        fetch(`http://localhost:8080/recipes`, configObj)
+        fetch(`${config.url.API_URL}/recipes`, configObj)
             .then(function(response){
             return response.json()
             })

@@ -1,7 +1,9 @@
+import { config } from '../constants';
+
 export function getCurrentUser(token) {
     return (dispatch) => {
         dispatch({ type: 'START_GETTING_CURRENT_USER' });
-        fetch("http://localhost:8080/get_current_user", {
+        fetch(`${config.url.API_URL}/get_current_user`, {
             headers: {
                 "Auth": token
             }
