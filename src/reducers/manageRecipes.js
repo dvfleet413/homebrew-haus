@@ -13,7 +13,10 @@ export default function manageRecipes(state={recipes: [], currentUser: {}}, acti
         case 'ASSIGN_CURRENT_USER':
             return {
                 ...state,
-                currentUser: action.user
+                currentUser: {
+                    ...action.user,
+                    recipes: action.user.recipes.map(recipe => recipe.id)
+                }
             }
         case 'LOGOUT':
             return {
