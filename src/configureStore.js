@@ -1,8 +1,7 @@
-import { applyMiddleware, createStore } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
-
-import manageRecipes from './reducers/manageRecipes';
+import { applyMiddleware, createStore } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from './reducers/rootReducer';
 
 export default function configureStore(preloadedState) {
   const middlewares = [thunkMiddleware]
@@ -13,9 +12,9 @@ export default function configureStore(preloadedState) {
 
   let store
   if (process.env.NODE_ENV === 'development'){
-    store = createStore(manageRecipes, preloadedState, composedEnhancers)
+    store = createStore(rootReducer, preloadedState, composedEnhancers)
   } else {
-    store = createStore(manageRecipes, applyMiddleware(thunkMiddleware))
+    store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
   }
   return store
 }

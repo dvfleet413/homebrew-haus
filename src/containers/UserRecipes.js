@@ -8,7 +8,10 @@ class UserRecipes extends Component {
     render(){
         if (Object.keys(this.props.currentUser).length > 0){
             const userRecipes = this.props.recipes.filter(recipe => this.props.currentUser.recipes.includes(recipe.id))
-            const recipes = userRecipes.map(recipe => <RecipeSummary key={`${recipe.id}-recipe`} recipe={recipe} match={this.props.match}/>)
+            const recipes = userRecipes.map(recipe => <RecipeSummary key={`${recipe.id}-recipe`} 
+                                                                     recipe={recipe} 
+                                                                     match={this.props.match} 
+                                                                     currentUser={this.props.currentUser}/>)
             return(
                 <div className="recipe-container">
                     {parseInt(this.props.userId, 10) !== this.props.currentUser.id ? <Redirect to='/recipes' /> : <h1>Your Saved Recipes</h1>}

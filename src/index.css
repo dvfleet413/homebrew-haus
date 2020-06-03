@@ -111,6 +111,26 @@ code {
   text-align: center;
 }
 
+.recipe-links {
+  max-width: 400px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.like-unclicked:hover {
+  transform: scale(1.4);
+}
+
+.like-unclicked {
+  color: #0053CE;
+}
+
+.like-clicked {
+  color: #0053CE;
+}
+
 .beer-card, .beer-form-container {
   background-color: white;
   margin-left: 5em;

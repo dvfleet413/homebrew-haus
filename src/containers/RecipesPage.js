@@ -6,8 +6,17 @@ import RecipeSummary from '../components/RecipeSummary';
 
 class RecipesPage extends Component {
     
+    handleLikeClick = (event, id) => {
+        event.preventDefault()
+        console.log(id)
+    }
+
     render(){
-        const recipes = this.props.recipes.map(recipe => <RecipeSummary key={`${recipe.id}-recipe`} recipe={recipe} match={this.props.match}/>)
+        const recipes = this.props.recipes.map(recipe => <RecipeSummary key={`${recipe.id}-recipe`} 
+                                                                        recipe={recipe} 
+                                                                        match={this.props.match} 
+                                                                        handleLikeClick={this.handleLikeClick}
+                                                                        currentUser={this.props.currentUser} />)
         return(
             <div className="recipe-container">
                 <Link to={`/recipes/new`} className="btn btn-primary">Add New Recipe</Link>
@@ -18,7 +27,10 @@ class RecipesPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {recipes: state.recipes}
+    return {
+        recipes: state.recipes,
+        currentUser: state.currentUser
+    }
 }
 
 
