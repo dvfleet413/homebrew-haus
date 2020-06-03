@@ -119,15 +119,11 @@ code {
   margin-right: auto;
 }
 
-.like-unclicked:hover {
+.like-unclicked:hover, .like-clicked:hover {
   transform: scale(1.4);
 }
 
-.like-unclicked {
-  color: #0053CE;
-}
-
-.like-clicked {
+.like-unclicked, .like-clicked {
   color: #0053CE;
 }
 

@@ -11,13 +11,14 @@ const Recipe = (props) => {
             <div className="recipe-links">
                 <Link to={`/recipes/${props.recipe.id}`}>View Recipe</Link> 
                 {userRecipeIds.includes(props.recipe.id) ? 
-                (<span className="like-clicked">
+                (<span className="like-clicked"
+                       onClick={(event) => props.handleUnlikeClick(event, props.currentUser.id, props.recipe.id)}>
                     <i className="fas fa-thumbs-up" />
                 </span>
                 )
                 :
                 (<span className="like-unclicked"
-                      onClick={(event) => props.handleLikeClick(event, props.currentUser.id, props.recipe.id)}>
+                       onClick={(event) => props.handleLikeClick(event, props.currentUser.id, props.recipe.id)}>
                     <i className="far fa-thumbs-up" />
                 </span>
                 )}
