@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addFavorite } from '../actions/addFavorite'
 import RecipeSummary from '../components/RecipeSummary';
 
 
 class RecipesPage extends Component {
     
-    handleLikeClick = (event, id) => {
+    handleLikeClick = (event, userId, recipeId) => {
         event.preventDefault()
-        console.log(id)
+        this.props.addFavorite(userId, recipeId)
     }
 
     render(){
@@ -33,5 +34,10 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addFavorite: (userId, recipeId) => dispatch(addFavorite(userId, recipeId))
+    }
+}
 
-export default connect(mapStateToProps)(RecipesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesPage);

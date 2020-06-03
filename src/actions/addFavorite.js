@@ -12,13 +12,14 @@ export function addFavorite(userId, recipeId){
             body: JSON.stringify({recipeId: recipeId})
         }
         fetch(`${config.url.API_URL}/users/${userId}/favorites`, configObj)
-            .then(function(response){
+            .then(response => {
             return response.json()
             })
-            .then(function(json){
+            .then(json => {
                 console.log(json)
+                dispatch({type: 'ADD_FAVORITE_TO_STORE', recipeId: recipeId})
             })
-            .catch(function(error){
+            .catch(error => {
                 console.log(error)
             }) 
     }

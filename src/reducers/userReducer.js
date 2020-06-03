@@ -5,6 +5,11 @@ export function userReducer(state={}, action){
                 ...action.user,
                 recipes: action.user.recipes.map(recipe => recipe.id)
             }
+        case 'ADD_FAVORITE_TO_STORE':
+            return {
+                ...state,
+                recipes: [...state.recipes, action.recipeId]
+            }
         case 'LOGOUT':
             return {}
         default:

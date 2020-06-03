@@ -17,7 +17,7 @@ const Recipe = (props) => {
                 )
                 :
                 (<span className="like-unclicked"
-                      onClick={(event) => props.handleLikeClick(event, props.recipe.id)}>
+                      onClick={(event) => props.handleLikeClick(event, props.currentUser.id, props.recipe.id)}>
                     <i className="far fa-thumbs-up" />
                 </span>
                 )}
