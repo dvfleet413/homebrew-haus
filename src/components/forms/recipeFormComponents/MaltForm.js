@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class MaltForm extends Component {
+class MaltForm extends Component {
     state = {
-        //TODO change name to maltId
-        name: '',
+        maltId: '',
         weight: ''
     }
 
@@ -14,11 +14,14 @@ export default class MaltForm extends Component {
     }
 
     render(){
-        //TODO change text input for name to select field
+        const options = this.props.malts.map(malt => <option key={`malt-${malt.id}`} value={malt.id}>{malt.name}</option>)
         return(
             <div className="malt-form">
                 <div className="new-ingredient-inputs">
-                    <div className="input"><span>Name: </span><input type="text" name="name" onChange={this.handleChange} value={this.state.name} /></div>
+                    {/* <div className="input"><span>Name: </span><input type="text" name="name" onChange={this.handleChange} value={this.state.name} /></div> */}
+                    <select name="maltId" value={this.state.maltId} onChange={this.handleChange}>
+                        { options }
+                    </select>
                     <div className="input"><span>Weight in Pounds: </span><input type="text" name="weight" onChange={this.handleChange} value={this.state.weight} /></div>
                 </div>
                 <div className="new-ingredient-btn">
@@ -27,5 +30,10 @@ export default class MaltForm extends Component {
             </div>
         )
     }
-
 }
+
+const mapStateToProps = (state) => {
+    return {malts: state.malts}
+}
+
+export default connect(mapStateToProps)(MaltForm)
