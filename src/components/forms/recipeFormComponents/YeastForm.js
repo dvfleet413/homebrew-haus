@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class YeastForm extends Component {
+class YeastForm extends Component {
     state = {
-        //TODO change name to yeastId
-        name: ''
+        yeastId: ''
     }
 
     handleChange = (event) => {
@@ -13,13 +13,14 @@ export default class YeastForm extends Component {
     }
 
     render(){
-        //TODO change text input for name to select field
+        const options = this.props.yeasts.map(yeast => <option key={`yeast-${yeast.id}`} value={yeast.id}>{yeast.name}</option>)
         return(
             <div className="yeast-form">
                 <div className="new-ingredient-inputs">
                     <div className="input">
-                        <span>Name: </span>
-                        <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
+                        <select name="yeastId" value={this.state.yeastId} onChange={this.handleChange}>
+                            { options }
+                        </select>
                     </div>
                 </div>
                 <div className="new-ingredient-btn">
@@ -28,5 +29,10 @@ export default class YeastForm extends Component {
             </div>
         )
     }
-
 }
+
+const mapStateToProps = (state) => {
+    return {yeasts: state.yeasts}
+}
+
+export default connect(mapStateToProps)(YeastForm)
