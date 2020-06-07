@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class GrainForm extends Component {
     state = {
+        //TODO change name to hopId
         name: '',
         weight: ''
     }
@@ -14,6 +15,7 @@ export default class GrainForm extends Component {
 
     render(){
         return(
+            //TODO change text input for name to select field
             <div className="grain-form">
                 <div className="new-ingredient-inputs">
                     <div className="input"><span>Name: </span><input type="text" name="name" onChange={this.handleChange} value={this.state.name} /></div>

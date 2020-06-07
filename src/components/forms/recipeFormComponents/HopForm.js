@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class HopForm extends Component {
     state = {
+        //TODO change name to hopId
         name: '',
         hopType: "bittering",
         weight: ''
@@ -14,6 +15,7 @@ export default class HopForm extends Component {
     }
 
     render(){
+        //TODO change text input for name to select field
         return(
             <div className="hop-form">
                 <div className="new-ingredient-inputs">

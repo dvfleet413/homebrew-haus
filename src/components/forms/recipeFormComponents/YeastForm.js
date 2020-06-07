@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class YeastForm extends Component {
     state = {
+        //TODO change name to yeastId
         name: ''
     }
 
@@ -12,6 +13,7 @@ export default class YeastForm extends Component {
     }
 
     render(){
+        //TODO change text input for name to select field
         return(
             <div className="yeast-form">
                 <div className="new-ingredient-inputs">

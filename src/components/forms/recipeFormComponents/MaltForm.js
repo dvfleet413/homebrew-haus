@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class MaltForm extends Component {
     state = {
+        //TODO change name to maltId
         name: '',
         weight: ''
     }
@@ -13,6 +14,7 @@ export default class MaltForm extends Component {
     }
 
     render(){
+        //TODO change text input for name to select field
         return(
             <div className="malt-form">
                 <div className="new-ingredient-inputs">
