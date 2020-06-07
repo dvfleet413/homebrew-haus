@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class GrainForm extends Component {
+class GrainForm extends Component {
     state = {
-        //TODO change name to hopId
         name: '',
         weight: ''
     }
@@ -14,11 +14,13 @@ export default class GrainForm extends Component {
     }
 
     render(){
+        const options = this.props.grains.map(grain => <option value={grain.id} key={`grain-${grain.id}`}>{grain.name}</option>)
         return(
-            //TODO change text input for name to select field
             <div className="grain-form">
                 <div className="new-ingredient-inputs">
-                    <div className="input"><span>Name: </span><input type="text" name="name" onChange={this.handleChange} value={this.state.name} /></div>
+                    <select name="grainId" value={this.state.hopId} onChange={this.handleChange}>
+                        { options }
+                    </select>
                     <div className="input"><span>Weight in Ounces: </span><input type="text" name="weight" onChange={this.handleChange} value={this.state.weight} /></div>
                 </div>
                 <div className="new-ingredient-btn">
@@ -28,3 +30,9 @@ export default class GrainForm extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {grains: state.grains}
+}
+
+export default connect(mapStateToProps)(GrainForm)
