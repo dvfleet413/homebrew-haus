@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { fetchRecipes } from './actions/fetchRecipes';
+import { fetchIngredients } from './actions/fetchIngredients'
 import { getCurrentUser } from './actions/getCurrentUser';
-
 import Home from './containers/Home';
 import Layout from './containers/Layout';
 import RecipesPage from './containers/RecipesPage';
@@ -20,6 +20,7 @@ import './App.css';
 class App extends Component {
   componentDidMount(){
     this.props.fetchRecipes()
+    this.props.fetchIngredients()
     const token = localStorage.getItem("token")
     if (token){this.props.getCurrentUser(token)}
   }
@@ -51,6 +52,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return { fetchRecipes: () => dispatch(fetchRecipes()),
+           fetchIngredients: () => dispatch(fetchIngredients()),
            getCurrentUser: (token) => dispatch(getCurrentUser(token))}
 }
 
