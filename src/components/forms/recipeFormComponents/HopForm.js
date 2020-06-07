@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class HopForm extends Component {
+class HopForm extends Component {
     state = {
-        //TODO change name to hopId
-        name: '',
+        hopId: '',
         hopType: "bittering",
         weight: ''
     }
@@ -15,14 +15,13 @@ export default class HopForm extends Component {
     }
 
     render(){
-        //TODO change text input for name to select field
+        const options = this.props.hops.map(hop => <option key={`hop-${hop.id}`} value={hop.id}>{hop.name}</option>)
         return(
             <div className="hop-form">
                 <div className="new-ingredient-inputs">
-                    <div className="input">
-                        <span>Name: </span>
-                        <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
-                    </div>
+                    <select name="hopId" value={this.state.hopId} onChange={this.handleChange}>
+                        { options }
+                    </select>
                     <div className="input">
                         <span>Weight in Ounces: </span>
                         <input type="text" name="weight" onChange={this.handleChange} value={this.state.weight} />
@@ -72,3 +71,9 @@ export default class HopForm extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {hops: state.hops}
+}
+
+export default connect(mapStateToProps)(HopForm)
