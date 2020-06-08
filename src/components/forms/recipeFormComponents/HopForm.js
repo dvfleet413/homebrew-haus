@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class HopForm extends Component {
     state = {
-        hopId: '',
+        hopId: '1',
         hopType: "bittering",
         weight: ''
     }

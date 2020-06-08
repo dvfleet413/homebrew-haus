@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class YeastForm extends Component {
     state = {
-        yeastId: ''
+        yeastId: '1'
     }
 
     handleChange = (event) => {

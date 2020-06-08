@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class MaltForm extends Component {
     state = {
-        maltId: '',
+        maltId: '1',
         weight: ''
     }
 

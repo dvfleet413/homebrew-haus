@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import uuid from 'uuid';
 import { addRecipe } from '../../../actions/addRecipe';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
@@ -38,7 +37,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            grainsAttributes: [...this.state.grainsAttributes, {...grain, id: uuid()}]
+            grainsAttributes: [...this.state.grainsAttributes, {...grain}]
         })
     }
 
@@ -57,7 +56,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            maltsAttributes: [...this.state.maltsAttributes, {...malt, id: uuid()}]
+            maltsAttributes: [...this.state.maltsAttributes, {...malt,}]
         })
     }
 
@@ -76,7 +75,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            hopsAttributes: [...this.state.hopsAttributes, {...hop, id: uuid()}]
+            hopsAttributes: [...this.state.hopsAttributes, {...hop}]
         })
     }
 
@@ -95,7 +94,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            yeastAttributes: {...yeast, id: uuid()}
+            yeastAttributes: {...yeast}
         })
     }
 
@@ -108,7 +107,9 @@ class RecipeForm extends Component {
     }
 
     render(){
-        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} grain={grain} removeGrain={this.removeGrain} />)
+        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} 
+                                                                           grain={grain} 
+                                                                           removeGrain={this.removeGrain} />)
         const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.id} malt={malt} removeMalt={this.removeMalt} />)
         const hops = this.state.hopsAttributes.map(hop => <HopCard key={hop.id} hop={hop} removeHop={this.removeHop} />)
         const yeast = <YeastCard key={this.state.yeastAttributes.id} yeast={this.state.yeastAttributes} removeYeast={this.removeYeast} />
@@ -154,10 +155,19 @@ class RecipeForm extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        grains: state.grains,
+        hops: state.hops,
+        malts: state.malts,
+        yeasts: state.yeasts
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         addRecipe: (recipe, history) => dispatch(addRecipe(recipe, history))
     }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(RecipeForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RecipeForm));

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class GrainForm extends Component {
     state = {
-        name: '',
+        grainId: '1',
         weight: ''
     }
 
