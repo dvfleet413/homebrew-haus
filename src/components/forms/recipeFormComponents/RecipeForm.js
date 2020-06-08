@@ -48,7 +48,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.grainId != id)
+                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.uuid != id)
             }
         })
     }
@@ -67,7 +67,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.maltId != id)
+                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.uuid != id)
             }
         })
     }
@@ -86,7 +86,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.hopId != id)
+                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.uuid != id)
             }
         })
     }

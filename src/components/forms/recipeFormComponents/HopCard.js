@@ -6,7 +6,7 @@ const HopCard = (props) => {
     return(
         <div className="hop-card">
             <span>{props.hop.weight} oz {storedHop.name} ({props.hop.hopType} hop)</span>
-            <button className="btn btn-secondary" onClick={event => props.removeHop(event, props.hop.hopId)}>Remove Hop</button>
+            <button className="btn btn-secondary" onClick={event => props.removeHop(event, props.hop.uuid)}>Remove Hop</button>
         </div>
     )
 }

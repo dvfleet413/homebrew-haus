@@ -6,7 +6,7 @@ const GrainCard = (props) => {
     return(
         <div className="grain-card">
             <span>{props.grain.weight} oz {storedGrain.name}</span>
-            <button className="btn btn-secondary" onClick={event => props.removeGrain(event, props.grain.grainId)}>Remove Grain</button>
+            <button className="btn btn-secondary" onClick={event => props.removeGrain(event, props.grain.uuid)}>Remove Grain</button>
         </div>
     )
 }
