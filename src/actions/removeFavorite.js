@@ -16,7 +16,6 @@ export function removeFavorite(userId, recipeId){
             return response.json()
             })
             .then(json => {
-                console.log(json)
                 dispatch({type: 'REMOVE_FAVORITE_FROM_STORE', recipeId: recipeId})
             })
             .catch(error => {

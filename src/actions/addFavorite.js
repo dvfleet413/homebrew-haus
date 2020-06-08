@@ -16,7 +16,6 @@ export function addFavorite(userId, recipeId){
             return response.json()
             })
             .then(json => {
-                console.log(json)
                 dispatch({type: 'ADD_FAVORITE_TO_STORE', recipeId: recipeId})
             })
             .catch(error => {
