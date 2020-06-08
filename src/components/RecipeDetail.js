@@ -7,7 +7,10 @@ const Recipe = (props) => {
         <div className="beer-card">
             <h1>{props.recipe.name}</h1>
             <div className="recipe-quick-stats">
-                <p><strong>Color (SRM): {parseInt(props.recipe.color, 10)}</strong></p>
+                <div className="color-line">
+                    <p><strong>Color (SRM): {parseInt(props.recipe.color, 10)}</strong></p> 
+                    <div className={`color-card srm-${parseInt(props.recipe.color, 10)}`}></div>
+                </div>
                 <p><strong>Bitterness (IBU): {parseInt(props.recipe.bitterness, 10)}</strong></p>
                 <p><strong>Estimated ABV: {parseInt((props.recipe.abv * 10), 10) / 10}%</strong></p>
             </div>

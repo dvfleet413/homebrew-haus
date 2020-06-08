@@ -111,6 +111,178 @@ code {
   text-align: center;
 }
 
+.color-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-card {
+  height: 2em;
+  width: 2em;
+  border: black solid 1px;
+  border-radius: 50%;
+  background-color: #240c0d;
+}
+
+.color-card.srm-1 {
+  background-color: #f8f4b4;
+}
+
+.color-card.srm-2 {
+  background-color: #fae06b;
+}
+
+.color-card.srm-3 {
+  background-color: #f5cd51;
+}
+
+.color-card.srm-4 {
+  background-color: #f3bf37;
+}
+
+.color-card.srm-5 {
+  background-color: #eead1f;
+}
+
+.color-card.srm-6 {
+  background-color: #e59c19;
+}
+
+.color-card.srm-7 {
+  background-color: #e08f15;
+}
+
+.color-card.srm-8 {
+  background-color: #d68118;
+}
+
+.color-card.srm-9 {
+  background-color: #d1741c;
+}
+
+.color-card.srm-10 {
+  background-color: #bd5a1b;
+}
+
+.color-card.srm-11 {
+  background-color: #c4621b;
+}
+
+.color-card.srm-12 {
+  background-color: #cd6f1b;
+}
+
+.color-card.srm-13 {
+  background-color: #c05825;
+}
+
+.color-card.srm-14 {
+  background-color: #ae4519;
+}
+.color-card.srm-15 {
+  background-color: #af4819;
+}
+
+.color-card.srm-16 {
+  background-color: #ae4519;
+}
+
+.color-card.srm-17 {
+  background-color: #a83b18;
+}
+
+.color-card.srm-18 {
+  background-color: #a43b18;
+}
+
+.color-card.srm-19 {
+  background-color: #9e3516;
+}
+
+.color-card.srm-20 {
+  background-color: #983115;
+}
+
+.color-card.srm-21 {
+  background-color: #932a15;
+}
+
+.color-card.srm-22 {
+  background-color: #902517;
+}
+
+.color-card.srm-23 {
+  background-color: #88200f;
+}
+
+.color-card.srm-24 {
+  background-color: #832116;
+}
+
+.color-card.srm-25 {
+  background-color: #7e2113;
+}
+
+.color-card.srm-26 {
+  background-color: #772011;
+}
+
+.color-card.srm-27 {
+  background-color: #751811;
+}
+
+.color-card.srm-28 {
+  background-color: #71190e;
+}
+
+.color-card.srm-29 {
+  background-color: #6a160e;
+}
+
+.color-card.srm-30 {
+  background-color: #67120c;
+}
+
+.color-card.srm-31 {
+  background-color: #65100e;
+}
+
+.color-card.srm-32 {
+  background-color: #600e0c;
+}
+
+.color-card.srm-33 {
+  background-color: #5d0c0d;
+}
+
+.color-card.srm-34 {
+  background-color: #58090c;
+}
+
+.color-card.srm-35 {
+  background-color: #54080e;
+}
+
+.color-card.srm-36 {
+  background-color: #4b0a0c;
+}
+
+.color-card.srm-37 {
+  background-color: #490f0f;
+}
+
+.color-card.srm-38 {
+  background-color: #400d10;
+}
+
+.color-card.srm-39 {
+  background-color: #3c0c10;
+}
+
+.color-card.srm-40 {
+  background-color: #240c0d;
+}
+
 .recipe-links {
   max-width: 400px;
   display: flex;
