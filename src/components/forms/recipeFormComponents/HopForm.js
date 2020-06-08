@@ -5,7 +5,8 @@ class HopForm extends Component {
     state = {
         hopId: '1',
         hopType: "bittering",
-        weight: ''
+        weight: '',
+        alphaAcid: ''
     }
 
     handleChange = (event) => {
@@ -25,6 +26,10 @@ class HopForm extends Component {
                     <div className="input">
                         <span>Weight in Ounces: </span>
                         <input type="text" name="weight" onChange={this.handleChange} value={this.state.weight} />
+                    </div>
+                    <div className="input">
+                        <span>Percent Alpha Acid (optional): </span>
+                        <input type="text" name="alphaAcid" onChange={this.handleChange} value={this.state.alphaAcid} />
                     </div>
                     <div className="input">
                         <span>Hop Type: </span>
