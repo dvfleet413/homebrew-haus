@@ -14,7 +14,7 @@ const Recipe = (props) => {
                 <div className="bitterness-line">
                     <p><strong>Bitterness (IBU): {parseInt(props.recipe.bitterness, 10)}</strong></p>
                     <div className="bitterness-bar">
-                        <div className="bitterness" style={{width: `${parseInt(props.recipe.bitterness, 10)}%`}}></div>
+                        <div className="bitterness" style={{width: `${parseInt((((props.recipe.bitterness - 15) / 65) * 100), 10)}%`}}></div>
                     </div>
                 </div>
                 <div className="abv-line">
