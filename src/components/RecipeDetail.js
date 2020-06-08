@@ -20,7 +20,7 @@ const Recipe = (props) => {
                 <div className="abv-line">
                     <p><strong>Estimated ABV: {parseInt((props.recipe.abv * 10), 10) / 10}%</strong></p>
                     <div className="abv-bar">
-                        <div className="abv" style={{width: `${parseInt((((props.recipe.abv - 3) / 10) * 100), 10)}%`}}></div>
+                        <div className="abv" style={{width: `${parseInt((((props.recipe.abv - 3) / 7) * 100), 10)}%`}}></div>
                     </div>
                 </div>
             </div>
