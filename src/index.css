@@ -121,6 +121,7 @@ code {
   width: 15em;
   border: black solid 1px;
   border-radius: 1em;
+  overflow: hidden;
   background-color: #240c0d;
 }
 
@@ -288,6 +289,7 @@ code {
   height: 2em;
   width: 15em;
   border: solid black 1px;
+  overflow: hidden;
   border-radius: 1em;
 }
 
@@ -296,7 +298,6 @@ code {
   left: 0;
   height: 2em;
   background-color: #283430;
-  border-radius: 1em;
 }
 
 .abv-bar {
@@ -304,6 +305,7 @@ code {
   height: 2em;
   width: 15em;
   border: solid black 1px;
+  overflow: hidden;
   border-radius: 1em;
 }
 
@@ -312,7 +314,6 @@ code {
   left: 0;
   height: 2em;
   background-color: #283430;
-  border-radius: 1em;
 }
 
 
