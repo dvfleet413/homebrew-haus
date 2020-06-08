@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { addRecipe } from '../../../actions/addRecipe';
+import uuid from 'uuid';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
 import HopForm from './HopForm';
@@ -37,7 +38,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            grainsAttributes: [...this.state.grainsAttributes, {...grain}]
+            grainsAttributes: [...this.state.grainsAttributes, {...grain, uuid: uuid()}]
         })
     }
 
@@ -47,7 +48,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.id != id)
+                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.grainId != id)
             }
         })
     }
@@ -56,7 +57,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            maltsAttributes: [...this.state.maltsAttributes, {...malt,}]
+            maltsAttributes: [...this.state.maltsAttributes, {...malt, uuid: uuid()}]
         })
     }
 
@@ -66,7 +67,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.id != id)
+                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.maltId != id)
             }
         })
     }
@@ -75,7 +76,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            hopsAttributes: [...this.state.hopsAttributes, {...hop}]
+            hopsAttributes: [...this.state.hopsAttributes, {...hop, uuid: uuid()}]
         })
     }
 
@@ -85,7 +86,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.id != id)
+                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.hopId != id)
             }
         })
     }
@@ -94,7 +95,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            yeastAttributes: {...yeast}
+            yeastAttributes: {...yeast, uuid: uuid()}
         })
     }
 
@@ -107,12 +108,18 @@ class RecipeForm extends Component {
     }
 
     render(){
-        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.id} 
+        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.uuid} 
                                                                            grain={grain} 
                                                                            removeGrain={this.removeGrain} />)
-        const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.id} malt={malt} removeMalt={this.removeMalt} />)
-        const hops = this.state.hopsAttributes.map(hop => <HopCard key={hop.id} hop={hop} removeHop={this.removeHop} />)
-        const yeast = <YeastCard key={this.state.yeastAttributes.id} yeast={this.state.yeastAttributes} removeYeast={this.removeYeast} />
+        const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.uuid} 
+                                                                       malt={malt} 
+                                                                       removeMalt={this.removeMalt} />)
+        const hops = this.state.hopsAttributes.map(hop => <HopCard key={hop.uuid} 
+                                                                   hop={hop} 
+                                                                   removeHop={this.removeHop} />)
+        const yeast = <YeastCard key={this.state.yeastAttributes.uuid} 
+                                 yeast={this.state.yeastAttributes} 
+                                 removeYeast={this.removeYeast} />
 
         return(
             <div className="beer-form-container">
