@@ -1,4 +1,5 @@
 import React from 'react';
+import QuickStats from './forms/recipeFormComponents/QuickStats';
 
 const Recipe = (props) => {
     const grainWeight = Math.round(props.recipe.grain_ingredients.map(grain => parseInt(grain.weight, 10)).reduce((acc, cur) => (acc + cur)) / 16)
@@ -6,24 +7,7 @@ const Recipe = (props) => {
     return(
         <div className="beer-card">
             <h1>{props.recipe.name}</h1>
-            <div className="recipe-quick-stats">
-                <div className="color-line">
-                    <p><strong>Color (SRM): {parseInt(props.recipe.color, 10)}</strong></p> 
-                    <div className={`color-card srm-${parseInt(props.recipe.color, 10)}`}></div>
-                </div>
-                <div className="bitterness-line">
-                    <p><strong>Bitterness (IBU): {parseInt(props.recipe.bitterness, 10)}</strong></p>
-                    <div className="bitterness-bar">
-                        <div className="bitterness" style={{width: `${parseInt((((props.recipe.bitterness - 15) / 65) * 100), 10)}%`}}></div>
-                    </div>
-                </div>
-                <div className="abv-line">
-                    <p><strong>Estimated ABV: {parseInt((props.recipe.abv * 10), 10) / 10}%</strong></p>
-                    <div className="abv-bar">
-                        <div className="abv" style={{width: `${parseInt((((props.recipe.abv - 3) / 7) * 100), 10)}%`}}></div>
-                    </div>
-                </div>
-            </div>
+            <QuickStats recipe={props.recipe} />
             <p>Heat {spargeWater} gallon of water to 160 degrees F. Add:</p>
             <ul>
                 {props.recipe.grain_ingredients.map(grain => <li key={`${grain.id}-grain`}><strong>{grain.weight} oz {grain.name}</strong></li>)}
