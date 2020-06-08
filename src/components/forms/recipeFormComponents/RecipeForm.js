@@ -48,7 +48,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                grainsAttributes: prevState.grainsAttributes.filter(grain => grain.uuid != id)
+                grainIngredientsAttributes: prevState.grainIngredientsAttributes.filter(grain => grain.uuid != id)
             }
         })
     }
@@ -67,7 +67,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                maltsAttributes: prevState.maltsAttributes.filter(malt => malt.uuid != id)
+                maltIngredientsAttributes: prevState.maltIngredientsAttributes.filter(malt => malt.uuid != id)
             }
         })
     }
@@ -86,7 +86,7 @@ class RecipeForm extends Component {
             return{
                 ...this.setState,
                 // eslint-disable-next-line
-                hopsAttributes: prevState.hopsAttributes.filter(hop => hop.uuid != id)
+                hopIngredientsAttributes: prevState.hopIngredientsAttributes.filter(hop => hop.uuid != id)
             }
         })
     }
@@ -103,7 +103,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            yeastAttributes: {}
+            yeastIngredientAttributes: {}
         })
     }
 

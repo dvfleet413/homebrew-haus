@@ -3,7 +3,7 @@ export function recipeReducer(state=[], action){
         case 'GET_RECIPES':
             return action.recipes
         case 'ADD_RECIPE':
-            return [...state.recipes, action.recipe]
+            return [...state, action.recipe]
         default:
             return state
     }
