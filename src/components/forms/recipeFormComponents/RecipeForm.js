@@ -17,10 +17,10 @@ class RecipeForm extends Component {
         name: '',
         category: '',
         summary: '',
-        grainsAttributes: [],
-        maltsAttributes: [],
-        hopsAttributes: [],
-        yeastAttributes: {}
+        grainIngredientsAttributes: [],
+        maltIngredientsAttributes: [],
+        hopIngredientsAttributes: [],
+        yeastIngredientAttributes: {}
     }
 
     handleSubmit = (event) => {
@@ -38,7 +38,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            grainsAttributes: [...this.state.grainsAttributes, {...grain, uuid: uuid()}]
+            grainIngredientsAttributes: [...this.state.grainIngredientsAttributes, {...grain, uuid: uuid()}]
         })
     }
 
@@ -57,7 +57,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            maltsAttributes: [...this.state.maltsAttributes, {...malt, uuid: uuid()}]
+            maltIngredientsAttributes: [...this.state.maltIngredientsAttributes, {...malt, uuid: uuid()}]
         })
     }
 
@@ -76,7 +76,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            hopsAttributes: [...this.state.hopsAttributes, {...hop, uuid: uuid()}]
+            hopIngredientsAttributes: [...this.state.hopIngredientsAttributes, {...hop, uuid: uuid()}]
         })
     }
 
@@ -95,7 +95,7 @@ class RecipeForm extends Component {
         event.preventDefault()
         this.setState({
             ...this.state,
-            yeastAttributes: {...yeast, uuid: uuid()}
+            yeastIngredientAttributes: {...yeast, uuid: uuid()}
         })
     }
 
@@ -108,17 +108,17 @@ class RecipeForm extends Component {
     }
 
     render(){
-        const grains = this.state.grainsAttributes.map(grain => <GrainCard key={grain.uuid} 
+        const grains = this.state.grainIngredientsAttributes.map(grain => <GrainCard key={grain.uuid} 
                                                                            grain={grain} 
                                                                            removeGrain={this.removeGrain} />)
-        const malts = this.state.maltsAttributes.map(malt => <MaltCard key={malt.uuid} 
+        const malts = this.state.maltIngredientsAttributes.map(malt => <MaltCard key={malt.uuid} 
                                                                        malt={malt} 
                                                                        removeMalt={this.removeMalt} />)
-        const hops = this.state.hopsAttributes.map(hop => <HopCard key={hop.uuid} 
+        const hops = this.state.hopIngredientsAttributes.map(hop => <HopCard key={hop.uuid} 
                                                                    hop={hop} 
                                                                    removeHop={this.removeHop} />)
-        const yeast = <YeastCard key={this.state.yeastAttributes.uuid} 
-                                 yeast={this.state.yeastAttributes} 
+        const yeast = <YeastCard key={this.state.yeastIngredientAttributes.uuid} 
+                                 yeast={this.state.yeastIngredientAttributes} 
                                  removeYeast={this.removeYeast} />
 
         return(
@@ -153,7 +153,7 @@ class RecipeForm extends Component {
                     <HopForm addHop = {this.addHop} />
                     <br />
                     <h3>Yeast: </h3>
-                    {Object.keys(this.state.yeastAttributes).length === 0 ? <YeastForm addYeast={this.addYeast} /> : <div className="current-ingredient-container">{yeast}</div>}
+                    {Object.keys(this.state.yeastIngredientAttributes).length === 0 ? <YeastForm addYeast={this.addYeast} /> : <div className="current-ingredient-container">{yeast}</div>}
                     <br />
                     <input type="submit" value="Add Recipe" />
                 </form>
