@@ -111,7 +111,7 @@ code {
   text-align: center;
 }
 
-.color-line {
+.color-line, .bitterness-line, .abv-line {
   display: flex;
   justify-content: space-between;
 }
@@ -282,6 +282,27 @@ code {
 .color-card.srm-40 {
   background-color: #240c0d;
 }
+
+.bitterness-bar {
+  position: relative;
+  height: 2em;
+  width: 15em;
+  border: solid black 1px;
+}
+
+.bitterness {
+  position: absolute;
+  left: 0;
+  height: 2em;
+  background-color: #283430;
+}
+
+.abv-bar {
+  height: 2em;
+  width: 15em;
+  border: solid black 1px;
+}
+
 
 .recipe-links {
   max-width: 400px;

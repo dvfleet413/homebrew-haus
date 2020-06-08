@@ -11,8 +11,16 @@ const Recipe = (props) => {
                     <p><strong>Color (SRM): {parseInt(props.recipe.color, 10)}</strong></p> 
                     <div className={`color-card srm-${parseInt(props.recipe.color, 10)}`}></div>
                 </div>
-                <p><strong>Bitterness (IBU): {parseInt(props.recipe.bitterness, 10)}</strong></p>
-                <p><strong>Estimated ABV: {parseInt((props.recipe.abv * 10), 10) / 10}%</strong></p>
+                <div className="bitterness-line">
+                    <p><strong>Bitterness (IBU): {parseInt(props.recipe.bitterness, 10)}</strong></p>
+                    <div className="bitterness-bar">
+                        <div className="bitterness" style={{width: `${parseInt(props.recipe.bitterness, 10)}%`}}></div>
+                    </div>
+                </div>
+                <div className="abv-line">
+                    <p><strong>Estimated ABV: {parseInt((props.recipe.abv * 10), 10) / 10}%</strong></p>
+                    <div className="abv-bar"></div>
+                </div>
             </div>
             <p>Heat {spargeWater} gallon of water to 160 degrees F. Add:</p>
             <ul>
