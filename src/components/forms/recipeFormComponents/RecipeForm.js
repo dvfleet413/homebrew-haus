@@ -69,13 +69,34 @@ class RecipeForm extends Component {
 
     removeGrain = (event, id) => {
         event.preventDefault()
-        this.setState(prevState => {
-            return{
-                ...this.setState,
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accepts': 'application/json'
+            },
+            body: JSON.stringify({recipe: {
+                ...this.state,
                 // eslint-disable-next-line
-                grainIngredientsAttributes: prevState.grainIngredientsAttributes.filter(grain => grain.uuid != id)
-            }
-        })
+                grainIngredientsAttributes: this.state.grainIngredientsAttributes.filter(grain => grain.uuid != id)
+                }
+            })
+        }
+        fetch(`${config.url.API_URL}/playground`, configObj)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                this.setState(prevState => {
+                    return {
+                        ...this.state,
+                        // eslint-disable-next-line
+                        grainIngredientsAttributes: prevState.grainIngredientsAttributes.filter(grain => grain.uuid != id),
+                        color: json.color,
+                        bitterness: json.bitterness,
+                        abv: json.abv
+                    }
+                })
+            })
     }
 
     addMalt = (event, malt) => {
