@@ -28,7 +28,7 @@ const Recipe = (props) => {
             </ul>
             <p>Boil for 3 minutes.  Remove from heat and chill the wort for 20 minutes.  Strain the cooled wort into the primary fermenter and add cold water to obtain 5-1/8 gallons. When the wort temperature is below 70 degree F pitch the yeast.</p>
             <ul>
-                <li>{props.recipe.yeast_ingredient.name}</li>
+                <li><strong>{props.recipe.yeast_ingredient.name}</strong></li>
             </ul>
             <p>Ferment in the primary fermenter for 7 days or until fermentation slows, then siphon into the secondary fermenter {props.recipe.hop_ingredients.some(hop => hop.hop_type === "dry") ? 'then add:' : '.'}</p>
             <ul>
