@@ -56,7 +56,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState({
                     ...this.state,
                     grainIngredientsAttributes: [...this.state.grainIngredientsAttributes, {...grain, uuid: uuid()}],
@@ -85,7 +84,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState(prevState => {
                     return {
                         ...this.state,
@@ -116,7 +114,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState({
                     ...this.state,
                     maltIngredientsAttributes: [...this.state.maltIngredientsAttributes, {...malt, uuid: uuid()}],
@@ -145,7 +142,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState(prevState => {
                     return {
                         ...this.state,
@@ -176,7 +172,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState({
                     ...this.state,
                     hopIngredientsAttributes: [...this.state.hopIngredientsAttributes, {...hop, uuid: uuid()}],
@@ -205,7 +200,6 @@ class RecipeForm extends Component {
         fetch(`${config.url.API_URL}/playground`, configObj)
             .then(response => response.json())
             .then(json => {
-                console.log(json)
                 this.setState(prevState => {
                     return {
                         ...this.state,
