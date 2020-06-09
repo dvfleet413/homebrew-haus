@@ -123,6 +123,7 @@ code {
   border-radius: 1em;
   overflow: hidden;
   background-color: #240c0d;
+  transition: background-color 1s;
 }
 
 .color-card.srm-0 {
