@@ -125,6 +125,7 @@ class RecipeForm extends Component {
     }
 
     removeMalt = (event, id) => {
+        // something wrong here
         event.preventDefault()
         const configObj = {
             method: 'POST',
@@ -146,7 +147,7 @@ class RecipeForm extends Component {
                     return {
                         ...this.state,
                         // eslint-disable-next-line
-                        maltIngredientsAttributes: prevState.grainIngredientsAttributes.filter(malt => malt.uuid != id),
+                        maltIngredientsAttributes: prevState.maltIngredientsAttributes.filter(malt => malt.uuid != id),
                         color: json.color,
                         bitterness: json.bitterness,
                         abv: json.abv
