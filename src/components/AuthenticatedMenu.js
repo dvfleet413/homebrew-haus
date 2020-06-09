@@ -16,8 +16,12 @@ const UnauthenticatedMenu = (props) => {
 
                 <Nav className="mr-auto">
                     <NavDropdown title="Recipes" id="collasible-nav-dropdown">
-                        <NavLink  to="/recipes" className="nvbar-link">Recipes</NavLink>
-                        <NavLink to={`/users/${props.user.id}/recipes`} className="navbar-link">Your Recipes</NavLink>
+                        <LinkContainer to="/recipes">
+                            <NavDropdown.Item className="navbar-link">All Recipes</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to={`/users/${props.user.id}/recipes`}>
+                            <NavDropdown.Item className="navbar-link">Your Recipes</NavDropdown.Item>
+                        </LinkContainer>
                     </NavDropdown>
                 </Nav>
                 
