@@ -299,6 +299,7 @@ code {
 
 .bitterness {
   position: absolute;
+  transition: width 1s;
   left: 0;
   height: 2em;
   background-color: #283430;
@@ -315,6 +316,7 @@ code {
 
 .abv {
   position: absolute;
+  transition: width 1s;
   left: 0;
   height: 2em;
   background-color: #283430;
