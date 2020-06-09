@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { addRecipe } from '../../../actions/addRecipe';
+import { config } from '../../../constants';
 import uuid from 'uuid';
+import QuickStats from './QuickStats';
 import GrainForm from './GrainForm';
 import MaltForm from './MaltForm';
 import HopForm from './HopForm';
@@ -20,7 +22,10 @@ class RecipeForm extends Component {
         grainIngredientsAttributes: [],
         maltIngredientsAttributes: [],
         hopIngredientsAttributes: [],
-        yeastIngredientAttributes: {}
+        yeastIngredientAttributes: {},
+        color: 0,
+        bitterness: 15,
+        abv: 3
     }
 
     handleSubmit = (event) => {
@@ -36,10 +41,30 @@ class RecipeForm extends Component {
 
     addGrain = (event, grain) => {
         event.preventDefault()
-        this.setState({
-            ...this.state,
-            grainIngredientsAttributes: [...this.state.grainIngredientsAttributes, {...grain, uuid: uuid()}]
-        })
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accepts': 'application/json'
+            },
+            body: JSON.stringify({recipe: {
+                ...this.state,
+                grainIngredientsAttributes: [...this.state.grainIngredientsAttributes, {...grain, uuid: uuid()}]
+                }
+            })
+        }
+        fetch(`${config.url.API_URL}/playground`, configObj)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                this.setState({
+                    ...this.state,
+                    grainIngredientsAttributes: [...this.state.grainIngredientsAttributes, {...grain, uuid: uuid()}],
+                    color: json.color,
+                    bitterness: json.bitterness,
+                    abv: json.abv
+                })
+            })
     }
 
     removeGrain = (event, id) => {
@@ -55,10 +80,30 @@ class RecipeForm extends Component {
 
     addMalt = (event, malt) => {
         event.preventDefault()
-        this.setState({
-            ...this.state,
-            maltIngredientsAttributes: [...this.state.maltIngredientsAttributes, {...malt, uuid: uuid()}]
-        })
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accepts': 'application/json'
+            },
+            body: JSON.stringify({recipe: {
+                ...this.state,
+                maltIngredientsAttributes: [...this.state.maltIngredientsAttributes, {...malt, uuid: uuid()}]
+                }
+            })
+        }
+        fetch(`${config.url.API_URL}/playground`, configObj)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                this.setState({
+                    ...this.state,
+                    maltIngredientsAttributes: [...this.state.maltIngredientsAttributes, {...malt, uuid: uuid()}],
+                    color: json.color,
+                    bitterness: json.bitterness,
+                    abv: json.abv
+                })
+            })
     }
 
     removeMalt = (event, id) => {
@@ -74,10 +119,30 @@ class RecipeForm extends Component {
 
     addHop = (event, hop) => {
         event.preventDefault()
-        this.setState({
-            ...this.state,
-            hopIngredientsAttributes: [...this.state.hopIngredientsAttributes, {...hop, uuid: uuid()}]
-        })
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accepts': 'application/json'
+            },
+            body: JSON.stringify({recipe: {
+                ...this.state,
+                hopIngredientsAttributes: [...this.state.hopIngredientsAttributes, {...hop, uuid: uuid()}]
+                }
+            })
+        }
+        fetch(`${config.url.API_URL}/playground`, configObj)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                this.setState({
+                    ...this.state,
+                    hopIngredientsAttributes: [...this.state.hopIngredientsAttributes, {...hop, uuid: uuid()}],
+                    color: json.color,
+                    bitterness: json.bitterness,
+                    abv: json.abv
+                })
+            })
     }
 
     removeHop = (event, id) => {
@@ -124,6 +189,7 @@ class RecipeForm extends Component {
         return(
             <div className="beer-form-container">
                 <h1>Add New Recipe</h1>
+                <QuickStats recipe={this.state} />
                 <form onSubmit={this.handleSubmit}>
                     <h3>Recipe Info:</h3>
                     <div className="new-recipe-info">
@@ -140,7 +206,7 @@ class RecipeForm extends Component {
                     </div>
                     <GrainForm addGrain={this.addGrain} />
                     <br />
-                    <h3>Malts:</h3>
+                    <h3>Extracts:</h3>
                     <div className="current-ingredient-container">
                         {malts}
                     </div>
