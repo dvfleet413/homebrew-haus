@@ -129,13 +129,34 @@ class RecipeForm extends Component {
 
     removeMalt = (event, id) => {
         event.preventDefault()
-        this.setState(prevState => {
-            return{
-                ...this.setState,
+        const configObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accepts': 'application/json'
+            },
+            body: JSON.stringify({recipe: {
+                ...this.state,
                 // eslint-disable-next-line
-                maltIngredientsAttributes: prevState.maltIngredientsAttributes.filter(malt => malt.uuid != id)
-            }
-        })
+                maltIngredientsAttributes: this.state.maltIngredientsAttributes.filter(malt => malt.uuid != id)
+                }
+            })
+        }
+        fetch(`${config.url.API_URL}/playground`, configObj)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                this.setState(prevState => {
+                    return {
+                        ...this.state,
+                        // eslint-disable-next-line
+                        maltIngredientsAttributes: prevState.grainIngredientsAttributes.filter(malt => malt.uuid != id),
+                        color: json.color,
+                        bitterness: json.bitterness,
+                        abv: json.abv
+                    }
+                })
+            })
     }
 
     addHop = (event, hop) => {
