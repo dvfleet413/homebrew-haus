@@ -26,6 +26,8 @@ Contributions are always welcome.  If you discover an issue, please feel free to
 
 ### Author
 
-Built by Dave Van Fleet 
+Built by Dave Van Fleet - https://github.com/dvfleet413
 
 ### License
+
+This project is open source and licensed under the MIT License [here](https://github.com/dvfleet413/homebrew-pub/blob/master/LICENSE)
